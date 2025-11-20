@@ -3,805 +3,394 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ibamark | Marketing</title>
-    <!-- Carga de Tailwind CSS -->
+    <title>IBAMARK | Servicios de Marketing</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Phosphor Icons para iconos ligeros y consistentes -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
     <style>
-        /* Configuración de la fuente Inter */
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
-        
+        @import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap');
+
         :root {
-            --primary-color: #39ff14; /* Verde de acento */
-            --light-primary-color: #70ff70; /* Verde más claro */
-            --background-color: #121217; /* Fondo oscuro y profundo */
+            --bg-color: #f0f0f0;
+            --main-color: #ccff00; /* Neon Lime */
+            --accent-color: #000000;
+            --text-color: #000000;
+            --shadow-offset: 6px;
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--background-color);
+            font-family: 'Space Mono', monospace;
+            background-color: var(--bg-color);
+            color: var(--text-color);
             overflow-x: hidden;
         }
 
-        /* Capa de Fondo Animada (Grid Dinámico) */
-        .animated-bg {
+        /* Brutalist Utilities */
+        .brutal-border {
+            border: 4px solid var(--accent-color);
+        }
+
+        .brutal-shadow {
+            box-shadow: var(--shadow-offset) var(--shadow-offset) 0px 0px var(--accent-color);
+            transition: all 0.1s ease;
+        }
+
+        .brutal-shadow:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 8px 8px 0px 0px var(--accent-color);
+        }
+
+        .brutal-shadow:active {
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0px 0px var(--accent-color);
+        }
+
+        .brutal-btn {
+            background-color: white;
+            border: 3px solid black;
+            padding: 10px 20px;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+            box-shadow: 4px 4px 0 black;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s;
+        }
+
+        .brutal-btn:hover {
+            background-color: var(--main-color);
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0 black;
+        }
+
+        .brutal-card {
+            background: white;
+            border: 4px solid black;
+            padding: 1.5rem;
+            transition: transform 0.2s;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .brutal-card:hover {
+            background-color: var(--main-color);
+        }
+
+        .brutal-card:hover .card-arrow {
+            transform: translateX(5px);
+        }
+
+        .brutal-input {
+            width: 100%;
+            background: white;
+            border: 3px solid black;
+            font-size: 1.2rem;
+            padding: 10px;
+            outline: none;
+            margin-bottom: 1rem;
+            font-family: 'Space Mono', monospace;
+        }
+
+        .brutal-input:focus {
+            background-color: #fcfcfc;
+            box-shadow: 4px 4px 0 var(--main-color);
+        }
+
+        /* Modal */
+        .modal-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            pointer-events: none;
-            opacity: 0.15; 
-            background: 
-                radial-gradient(circle at 100% 100%, #1a1a20 5%, transparent 5%),
-                radial-gradient(circle at 0% 100%, #1a1a20 5%, transparent 5%),
-                radial-gradient(circle at 100% 0%, #1a1a20 5%, transparent 5%),
-                radial-gradient(circle at 0% 0%, #1a1a20 5%, transparent 5%),
-                repeating-linear-gradient(0deg, #1a1a20, #1a1a20 1px, transparent 1px, transparent 100px),
-                repeating-linear-gradient(90deg, #1a1a20, #1a1a20 1px, transparent 1px, transparent 100px);
-            background-size: 100px 100px;
-            animation: bg-pan 30s linear infinite;
-        }
-
-        @keyframes bg-pan {
-            0% { background-position: 0% 0%; }
-            100% { background-position: 100% 100%; }
-        }
-        
-        /* Animación del Núcleo de Marca (Logo) */
-        .brand-core {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(45deg, var(--primary-color), var(--light-primary-color));
-            border-radius: 50%;
-            box-shadow: 0 0 10px rgba(57, 255, 20, 0.5); 
-            position: relative;
-            animation: 
-                pulse 3s infinite alternate ease-in-out,
-                rotate 15s linear infinite;
-        }
-        @keyframes pulse {
-            0% { transform: scale(1); box-shadow: 0 0 10px rgba(57, 255, 20, 0.5); }
-            50% { transform: scale(1.05); box-shadow: 0 0 25px rgba(57, 255, 20, 0.8); }
-            100% { transform: scale(1); box-shadow: 0 0 10px rgba(57, 255, 20, 0.5); }
-        }
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-
-        /* Estilos Comunes */
-        .service-button {
-            background-color: var(--primary-color);
-            color: var(--background-color);
-            border-radius: 9999px;
-            font-weight: bold;
-            transition: all 0.3s ease;
-        }
-
-        .service-button:hover {
-             background-color: var(--light-primary-color);
-        }
-
-        .fun-card {
-            background-color: #18181c; 
-            border: 1px solid #333; 
-            border-radius: 12px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5); 
-            padding: 2.5rem;
-        }
-        
-        /* Contenedores de Vistas (Fixed Top para que suban bien) */
-        #brand-design-form-container, #schedule-view {
-            transition: opacity 0.5s ease-in-out;
-            opacity: 0;
-            position: fixed; 
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%; 
-            overflow-y: auto; 
-            z-index: 50; 
-            background-color: var(--background-color); 
-            padding-top: 5rem;
-            padding-bottom: 5rem;
-        }
-
-        /* Estilos del Calendario */
-        .calendar-grid {
-            display: grid;
-            grid-template-columns: repeat(7, 1fr);
-            gap: 5px;
-            margin-bottom: 1.5rem;
-        }
-        
-        .day-cell {
-            padding: 8px 4px;
-            text-align: center;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            font-weight: 600;
-        }
-        
-        .day-header {
-            color: var(--light-primary-color);
-            font-weight: 800;
-            padding-bottom: 10px;
-        }
-        
-        .day-disabled {
-            background-color: #1a1a20;
-            color: #444;
-            cursor: not-allowed;
-        }
-
-        .day-available:hover {
-            background-color: #1f1f25;
-            border: 1px solid #333;
-        }
-        
-        .day-selected {
-            background-color: var(--primary-color) !important;
-            color: var(--background-color) !important;
-            box-shadow: 0 0 10px rgba(57, 255, 20, 0.5);
-            border: none;
-        }
-        
-        /* Estilos de Hora */
-        .time-slot {
-            padding: 10px 15px;
-            border-radius: 8px;
-            background-color: #1f1f25;
-            border: 1px solid #333;
-            color: #ccc;
-            transition: all 0.2s;
-            cursor: pointer;
-        }
-
-        .time-slot:hover {
-            background-color: #25252a;
-            color: white;
-        }
-
-        .time-selected {
-            background-color: var(--primary-color) !important;
-            color: var(--background-color) !important;
-            font-weight: 700;
-            box-shadow: 0 0 10px rgba(57, 255, 20, 0.5);
-        }
-        
-        /* Estilos para el paso del formulario (Se mantienen) */
-        .form-input {
-            background-color: transparent;
-            border: none;
-            border-bottom: 1px solid #444; 
-            color: white;
-            padding: 0.75rem 0.25rem;
-            border-radius: 0;
-            transition: border-color 0.3s, background-color 0.3s;
-        }
-        .form-input:focus {
-            background-color: #1a1a20; 
-            border-bottom: 2px solid var(--primary-color); 
-            outline: none;
-            box-shadow: none; 
-        }
-        .form-step-title {
-            color: white; 
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            margin-top: 1.5rem;
-            display: flex;
-            align-items: center;
-        }
-        .form-step-title::before {
-            content: attr(data-step); 
-            display: flex;
-            align-items: center;
+            background: rgba(0,0,0,0.8);
+            z-index: 50;
+            display: none; /* Hidden by default */
             justify-content: center;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            background-color: var(--primary-color);
-            color: var(--background-color);
-            font-size: 1rem;
-            font-weight: 800;
-            margin-right: 10px;
+            align-items: center;
+            padding: 20px;
         }
 
-        .style-option {
-            cursor: pointer;
-            transition: all 0.2s ease;
-            background-color: #1f1f25; 
-            border: 1px solid #444; 
-            color: #ccc;
-            font-weight: 500;
-        }
-        .style-option.selected {
-            background-color: var(--primary-color);
-            color: var(--background-color);
-            border-color: var(--primary-color);
+        .modal-content {
+            background: var(--main-color);
+            border: 4px solid white;
+            padding: 2rem;
+            width: 100%;
+            max-width: 500px;
+            box-shadow: 10px 10px 0 black;
+            position: relative;
+            animation: slideDown 0.3s ease-out;
         }
 
+        @keyframes slideDown {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        /* Scrollbar for right section */
+        .custom-scroll::-webkit-scrollbar {
+            width: 12px;
+        }
+        .custom-scroll::-webkit-scrollbar-track {
+            background: black;
+        }
+        .custom-scroll::-webkit-scrollbar-thumb {
+            background: var(--main-color);
+            border: 2px solid black;
+        }
+
+        /* Marquee */
+        .marquee-container {
+            overflow: hidden;
+            white-space: nowrap;
+            background: black;
+            color: white;
+            padding: 10px 0;
+            border-top: 4px solid black;
+            border-bottom: 4px solid black;
+        }
+        
+        .marquee-content {
+            display: inline-block;
+            animation: marquee 20s linear infinite;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
     </style>
 </head>
-<body class="flex items-center justify-center min-h-screen p-4">
+<body class="h-screen flex flex-col overflow-hidden">
 
-    <!-- Capa de Fondo Animada -->
-    <div class="animated-bg"></div>
-    
-    <!-- Contenedor Principal Global (Centrado y Responsive) -->
-    <div class="relative z-10 text-center w-full max-w-6xl mx-auto py-12 px-2 md:px-8">
-
-        <!-- ************************************ -->
-        <!-- VIEW 1: MAIN CONTENT (SERVICES) -->
-        <!-- ************************************ -->
-        <div id="main-content" class="transition-opacity duration-500 ease-in-out">
-            
-            <div class="flex justify-center mb-10 md:mb-16">
-                <div class="brand-core"></div>
+    <!-- HEADER -->
+    <header class="flex justify-between items-center p-4 border-b-4 border-black bg-white relative z-10 flex-shrink-0">
+        <div class="flex items-center gap-4">
+            <div class="text-2xl md:text-3xl font-black tracking-tighter uppercase bg-black text-white px-2 transform -rotate-2">
+                IBAMARK®
             </div>
+            <!-- Social Icons -->
+            <div class="flex gap-2 ml-4">
+                <a href="https://www.facebook.com/profile.php?id=61581809648627" target="_blank" class="text-2xl hover:text-[var(--main-color)] transition-colors border-2 border-black p-1 bg-white hover:bg-black">
+                    <i class="ph ph-facebook-logo"></i>
+                </a>
+                <a href="https://www.instagram.com/ibamark_marketing/" target="_blank" class="text-2xl hover:text-[var(--main-color)] transition-colors border-2 border-black p-1 bg-white hover:bg-black">
+                    <i class="ph ph-instagram-logo"></i>
+                </a>
+            </div>
+        </div>
+        <div class="hidden md:block font-bold text-xs md:text-sm text-right">
+            EST. 2025 // SERVICIOS INTEGRALES<br>CDMX - MÉXICO
+        </div>
+    </header>
 
-            <header class="mb-8">
-                <h1 class="text-5xl sm:text-6xl md:text-7xl font-extrabold text-white leading-tight mb-4 tracking-tighter">
-                    Tu <span class="text-transparent bg-clip-text bg-gradient-to-r from-lime-400 to-green-600">Visión</span>, Convertida en Crecimiento.
-                </h1>
-                <p class="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto px-4">
-                    Diseño de marca, estrategia y amplificación digital. Te damos el toolkit completo para dominar tu mercado.
+    <!-- MAIN LAYOUT -->
+    <div class="flex flex-col md:flex-row flex-grow overflow-hidden relative">
+        
+        <!-- LEFT SIDE: Visuals (Sticky/Fixed feel on desktop) -->
+        <aside class="w-full md:w-1/3 bg-[var(--main-color)] border-b-4 md:border-b-0 md:border-r-4 border-black p-6 flex flex-col justify-between relative overflow-hidden flex-shrink-0 h-48 md:h-auto z-10">
+            <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(black 2px, transparent 2px); background-size: 20px 20px;"></div>
+            
+            <div class="z-10">
+                <h2 class="text-4xl md:text-6xl font-black leading-none mb-2">
+                    TODO<br>EN UNO.
+                </h2>
+                <p class="text-sm md:text-lg font-bold bg-black text-white inline-block px-2">
+                    AGENCIA CREATIVA 360°
                 </p>
-            </header>
-
-            <section class="mb-12">
-                <h2 class="text-2xl text-white font-semibold mb-8">Nuestros Servicios de Impacto Total:</h2>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6 md:gap-8">
-                    
-                    <!-- Tarjeta 1: Diseño de logo (MANTIENE FLUJO FORMULARIO) -->
-                    <div class="p-6 bg-white/5 rounded-2xl shadow-lg border border-gray-700/50 backdrop-blur-sm hover:shadow-lg transition duration-300 transform hover:scale-[1.01] flex flex-col justify-between">
-                        <div>
-                            <svg class="w-8 h-8 text-lime-400 mb-3 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10m0-10l-4-2m4 2l4-2m-4 2l4 2m-4-2z"></path></svg>
-                            <p class="text-xl font-bold text-white mb-2">Diseño de Logo</p>
-                            <p class="text-sm text-gray-400 mb-4">Diseño de marca completo. Convertimos tu idea en una identidad visual coherente, memorable y lista para escalar.</p>
-                        </div>
-                        <button onclick="showBrandForm()" class="service-button px-4 py-2 text-sm mt-auto mx-auto w-full max-w-[150px] hover:scale-[1.05]">
-                            Solicitar Servicio
-                        </button>
-                    </div>
-                    
-                    <!-- Tarjeta 2: Gestión de Redes Sociales (NUEVO: WhatsApp Directo) -->
-                    <div class="p-6 bg-white/5 rounded-2xl shadow-lg border border-gray-700/50 backdrop-blur-sm hover:shadow-lg transition duration-300 transform hover:scale-[1.01] flex flex-col justify-between">
-                        <div>
-                            <svg class="w-8 h-8 text-lime-400 mb-3 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
-                            <p class="text-xl font-bold text-white mb-2">Gestión de Redes Sociales</p>
-                            <p class="text-sm text-gray-400 mb-4">Tu audiencia está esperando. El silencio en redes es perder dinero. Transforma seguidores en clientes leales.</p>
-                        </div>
-                        <button onclick="sendServiceWhatsApp('Gestión de Redes Sociales')" class="service-button px-4 py-2 text-sm mt-auto mx-auto w-full max-w-[150px] hover:scale-[1.05]">
-                            Solicitar Servicio
-                        </button>
-                    </div>
-
-                    <!-- Tarjeta 3: Consultoría Estratégica (NUEVO: WhatsApp Directo) -->
-                    <div class="p-6 bg-white/5 rounded-2xl shadow-lg border border-gray-700/50 backdrop-blur-sm hover:shadow-lg transition duration-300 transform hover:scale-[1.01] flex flex-col justify-between">
-                        <div>
-                            <svg class="w-8 h-8 text-lime-400 mb-3 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"></path></svg>
-                            <p class="text-xl font-bold text-white mb-2">Consultoría Estratégica</p>
-                            <p class="text-sm text-gray-400 mb-4">¿Qué están haciendo tus rivales que tú no? Obtén el mapa de ruta exacto para el crecimiento garantizado en tu sector.</p>
-                        </div>
-                        <button onclick="sendServiceWhatsApp('Consultoría Estratégica')" class="service-button px-4 py-2 text-sm mt-auto mx-auto w-full max-w-[150px] hover:scale-[1.05]">
-                            Solicitar Servicio
-                        </button>
-                    </div>
-                    
-                    <!-- Tarjeta 4: Diseño de Creativos (NUEVO: WhatsApp Directo) -->
-                    <div class="p-6 bg-white/5 rounded-2xl shadow-lg border border-gray-700/50 backdrop-blur-sm hover:shadow-lg transition duration-300 transform hover:scale-[1.01] flex flex-col justify-between">
-                        <div>
-                            <svg class="w-8 h-8 text-lime-400 mb-3 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-2.414-2.414A1 1 0 0015.586 6H7a2 2 0 00-2 2v11a2 2 0 002 2z"></path></svg>
-                            <p class="text-xl font-bold text-white mb-2">Diseño de Creativos</p>
-                            <p class="text-sm text-gray-400 mb-4">¿Tus gráficos son un "skip"? Necesitas imágenes que ejecuten la venta por ti. Diseño optimizado que convierte clics en ingresos constantes.</p>
-                        </div>
-                        <button onclick="sendServiceWhatsApp('Diseño de Creativos')" class="service-button px-4 py-2 text-sm mt-auto mx-auto w-full max-w-[150px] hover:scale-[1.05]">
-                            Solicitar Servicio
-                        </button>
-                    </div>
-
-                    <!-- Tarjeta 5: Publicidad Digital (ADS) (NUEVO: WhatsApp Directo) -->
-                    <div class="p-6 bg-white/5 rounded-2xl shadow-lg border border-gray-700/50 backdrop-blur-sm hover:shadow-lg transition duration-300 transform hover:scale-[1.01] flex flex-col justify-between">
-                        <div>
-                            <svg class="w-8 h-8 text-lime-400 mb-3 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
-                            <p class="text-xl font-bold text-white mb-2">Publicidad Digital (ADS)</p>
-                            <p class="text-sm text-gray-400 mb-4">No solo publiques, impacta. Deja de quemar presupuesto. Alcanza el cliente exacto, ahora mismo, con ROI medible.</p>
-                        </div>
-                        <button onclick="sendServiceWhatsApp('Publicidad Digital (ADS)')" class="service-button px-4 py-2 text-sm mt-auto mx-auto w-full max-w-[150px] hover:scale-[1.05]">
-                            Solicitar Servicio
-                        </button>
-                    </div>
-
-                    <!-- Tarjeta 6: Registro Legal de Marcas (NUEVO: WhatsApp Directo) -->
-                    <div class="p-6 bg-white/5 rounded-2xl shadow-lg border border-gray-700/50 backdrop-blur-sm hover:shadow-lg transition duration-300 transform hover:scale-[1.01] flex flex-col justify-between">
-                        <div>
-                            <svg class="w-8 h-8 text-lime-400 mb-3 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.01 12.01 0 002.92 12c.704 3.064 3.255 5.8 7.08 7.295L12 21.414l2.002-.676c3.825-1.495 6.376-4.231 7.08-7.295a12.01 12.01 0 00-.462-5.056z"></path></svg>
-                            <p class="text-xl font-bold text-white mb-2">Registro Legal de Marcas</p>
-                            <p class="text-sm text-gray-400 mb-4">¿Qué pasa si te copian? La única forma de escalar es estar protegido. Asegura que tu identidad sea tuya y de nadie más para siempre.</p>
-                        </div>
-                        <button onclick="sendServiceWhatsApp('Registro Legal de Marcas')" class="service-button px-4 py-2 text-sm mt-auto mx-auto w-full max-w-[150px] hover:scale-[1.05]">
-                            Solicitar Servicio
-                        </button>
-                    </div>
-
-                </div>
-            </section>
+            </div>
             
-        </div>
-        
-        <!-- ************************************ -->
-        <!-- VIEW 2: LOGO FORM (Step 1) -->
-        <!-- ************************************ -->
-        <div id="brand-design-form-container" style="display: none;">
-            <div class="max-w-6xl mx-auto px-2 md:px-8">
-                
-                <button onclick="hideBrandForm()" class="absolute top-8 left-4 md:left-8 flex items-center text-lime-400 hover:text-white transition duration-300 font-semibold text-lg z-20">
-                    <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
-                    Volver
-                </button>
-
-                <header class="text-center mb-10 mt-16 md:mt-10">
-                    <h1 class="text-4xl sm:text-5xl font-extrabold text-lime-400 mb-2 tracking-tight">
-                        ¡Crea tu Logo Ahora!
-                    </h1>
-                    <p class="text-lg text-gray-300 max-w-3xl mx-auto">
-                        Solo 5 preguntas para empezar a diseñar tu identidad de marca. ¡Juega con el estilo!
-                    </p>
-                </header>
-
-                <form id="full-brand-form" class="fun-card w-full max-w-xl mx-auto text-left">
-                    
-                    <div class="mb-8">
-                        <p class="form-step-title" data-step="1">Nombre de tu Marca / Empresa</p>
-                        <input type="text" id="brand-name" name="brand-name" placeholder="Ej: Tech Solutions o Mi Negocio Cool" required class="form-input w-full">
-                    </div>
-                    
-                    <div class="mb-8">
-                        <p class="form-step-title" data-step="2">¡Escoge tu Estilo!</p>
-                        <input type="hidden" id="logo-style" name="logo-style" required>
-                        <div class="grid grid-cols-2 gap-4">
-                            <button type="button" class="style-option px-4 py-3 rounded-xl text-lg hover:shadow-md" data-value="Moderno / Minimalista">Moderno / Minimalista</button>
-                            <button type="button" class="style-option px-4 py-3 rounded-xl text-lg hover:shadow-md" data-value="Clásico / Vintage">Clásico / Vintage</button>
-                            <button type="button" class="style-option px-4 py-3 rounded-xl text-lg hover:shadow-md" data-value="Geométrico / Abstracto">Geométrico / Abstracto</button>
-                            <button type="button" class="style-option px-4 py-3 rounded-xl text-lg hover:shadow-md" data-value="Dibujo / Mascota">Dibujo / Mascota</button>
-                        </div>
-                    </div>
-
-                    <div class="mb-8">
-                        <p class="form-step-title" data-step="3">Colores Clave (Máximo 3)</p>
-                        <input type="text" id="brand-colors" name="brand-colors" placeholder="Ej: Azul profundo, Blanco, Amarillo brillante" required class="form-input w-full">
-                    </div>
-
-                    <div class="mb-8">
-                        <p class="form-step-title" data-step="4">¿A qué Sector Pertenece?</p>
-                        <input type="text" id="brand-sector" name="brand-sector" placeholder="Ej: Fintech, E-commerce de moda, Restaurante" required class="form-input w-full">
-                    </div>
-
-                    <div class="mb-8">
-                        <p class="form-step-title" data-step="5">Observaciones y Magia Extra</p>
-                        <textarea id="brand-observations" name="brand-observations" rows="3" placeholder="Ej: Quiero que incluya un símbolo de un cohete. El logo debe ser legible en blanco y negro." class="form-input w-full"></textarea>
-                    </div>
-
-                    <!-- Botón de Envío: TEXTO ACTUALIZADO -->
-                    <div class="text-center mt-10">
-                        <button type="submit" class="inline-flex items-center justify-center px-10 py-3 border border-transparent text-base font-bold rounded-full text-black bg-lime-400 hover:bg-lime-300 focus:outline-none focus:ring-4 focus:ring-lime-500/50 uppercase tracking-widest transition duration-300">
-                            Agendar Estrategia
-                        </button>
-                        <p id="submit-message" class="text-lime-400 mt-4 hidden text-lg font-semibold"></p>
-                    </div>
-                </form>
-            </div>
-        </div>
-
-        <!-- ************************************ -->
-        <!-- VIEW 3: SCHEDULE CALENDAR (Step 2) -->
-        <!-- ************************************ -->
-        <div id="schedule-view" style="display: none;">
-            <div class="max-w-6xl mx-auto px-2 md:px-8">
-                
-                <button onclick="showBrandForm()" class="absolute top-8 left-4 md:left-8 flex items-center text-lime-400 hover:text-white transition duration-300 font-semibold text-lg z-20">
-                    <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
-                    Volver al Formulario
-                </button>
-
-                <header class="text-center mb-10 mt-16 md:mt-10">
-                    <h1 class="text-4xl sm:text-5xl font-extrabold text-lime-400 mb-2 tracking-tight">
-                        Paso 2: Agenda tu Llamada de Estrategia
-                    </h1>
-                    <p class="text-lg text-gray-300 max-w-3xl mx-auto">
-                        Selecciona el día y la hora que mejor te funcionen para revisar los detalles de tu diseño.
-                    </p>
-                </header>
-
-                <div class="fun-card w-full max-w-3xl mx-auto text-center grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
-                    
-                    <!-- CALENDARIO (Lado Izquierdo) -->
-                    <div class="lg:border-r lg:border-gray-700 lg:pr-8">
-                        <p class="form-step-title mb-4" data-step="6">Elige la Fecha</p>
-                        
-                        <!-- Navegación del Mes -->
-                        <div class="flex justify-between items-center text-white mb-6">
-                            <button id="prev-month" class="text-lime-400 hover:text-white p-2 rounded-full transition duration-150">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
-                            </button>
-                            <h3 id="current-month-year" class="text-xl font-bold uppercase tracking-wider"></h3>
-                            <button id="next-month" class="text-lime-400 hover:text-white p-2 rounded-full transition duration-150">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                            </button>
-                        </div>
-                        
-                        <!-- Grid de Días -->
-                        <div class="calendar-grid text-white" id="calendar-days">
-                            <!-- Los encabezados de días se añaden aquí -->
-                        </div>
-                    </div>
-                    
-                    <!-- HORARIOS (Lado Derecho) -->
-                    <div>
-                        <p class="form-step-title mb-4" data-step="7">Selecciona la Hora</p>
-                        <div id="selected-date-display" class="text-lg text-lime-400 font-semibold mb-6 min-h-[1.5rem]">
-                            <!-- Muestra la fecha seleccionada -->
-                        </div>
-
-                        <div id="time-slots-container" class="grid grid-cols-2 gap-3 text-sm md:text-base">
-                            <!-- Los slots de tiempo se renderizan aquí -->
-                        </div>
-                        
-                        <p id="time-select-message" class="text-gray-500 mt-4 text-sm hidden">Selecciona un día primero.</p>
-                    </div>
-
-                    <!-- Botón Final de Envío a WhatsApp -->
-                    <div class="lg:col-span-2 text-center mt-8 pt-6 border-t border-gray-700">
-                        <button id="whatsapp-submit-btn" onclick="sendWhatsAppMessage()" disabled class="inline-flex items-center justify-center px-8 py-3 text-base font-bold rounded-full text-black bg-gray-500/50 cursor-not-allowed uppercase tracking-widest transition duration-300">
-                             Enviar Solicitud
-                        </button>
-                        <p id="whatsapp-error-message" class="text-red-400 mt-4 hidden text-sm font-semibold">Por favor, selecciona una fecha y una hora.</p>
-                    </div>
+            <div class="hidden md:block z-10">
+                <p class="font-bold text-xl border-t-4 border-black pt-4 mt-4">
+                    ¿QUÉ NECESITAS HOY?
+                </p>
+                <p class="text-sm mt-2">Selecciona una opción del panel derecho para cotizar inmediatamente vía WhatsApp.</p>
+                <div class="mt-6 text-4xl animate-bounce">
+                    →
                 </div>
-
             </div>
-        </div>
-        
+        </aside>
+
+        <!-- RIGHT SIDE: Services Grid (Scrollable) -->
+        <main class="w-full md:w-2/3 bg-white p-6 md:p-12 overflow-y-auto custom-scroll relative">
+            
+            <div class="max-w-4xl mx-auto pb-20">
+                <h3 class="text-3xl font-black mb-8 border-b-4 border-black pb-2 inline-block">NUESTROS SERVICIOS</h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    
+                    <!-- Service Card 1 -->
+                    <div class="brutal-card brutal-shadow group" onclick="openModal('Diseño de Logos / Marca')">
+                        <div class="flex justify-between items-start mb-4">
+                            <i class="ph-fill ph-paint-brush-broad text-4xl"></i>
+                            <span class="bg-black text-white text-xs px-2 py-1 font-bold">BRANDING</span>
+                        </div>
+                        <h4 class="text-xl font-bold mb-2 leading-tight group-hover:underline">DISEÑO DE LOGOS Y MARCA</h4>
+                        <p class="text-sm text-gray-600 mb-4">Identidad visual completa, manual de marca y logotipos memorables.</p>
+                        <div class="text-right font-bold card-arrow">COTIZAR →</div>
+                    </div>
+
+                    <!-- Service Card 2 -->
+                    <div class="brutal-card brutal-shadow group" onclick="openModal('Fotografía y Video')">
+                        <div class="flex justify-between items-start mb-4">
+                            <i class="ph-fill ph-video-camera text-4xl"></i>
+                            <span class="bg-black text-white text-xs px-2 py-1 font-bold">PRODUCCIÓN</span>
+                        </div>
+                        <h4 class="text-xl font-bold mb-2 leading-tight group-hover:underline">FOTOGRAFÍA Y VIDEO</h4>
+                        <p class="text-sm text-gray-600 mb-4">Contenido audiovisual profesional para redes, productos y corporativo.</p>
+                        <div class="text-right font-bold card-arrow">COTIZAR →</div>
+                    </div>
+
+                    <!-- Service Card 3 -->
+                    <div class="brutal-card brutal-shadow group" onclick="openModal('Publicidad Digital')">
+                        <div class="flex justify-between items-start mb-4">
+                            <i class="ph-fill ph-megaphone text-4xl"></i>
+                            <span class="bg-black text-white text-xs px-2 py-1 font-bold">ADS</span>
+                        </div>
+                        <h4 class="text-xl font-bold mb-2 leading-tight group-hover:underline">PUBLICIDAD (ADS)</h4>
+                        <p class="text-sm text-gray-600 mb-4">Campañas en Meta (FB/IG) y Google Ads optimizadas para ventas.</p>
+                        <div class="text-right font-bold card-arrow">COTIZAR →</div>
+                    </div>
+
+                    <!-- Service Card 4 -->
+                    <div class="brutal-card brutal-shadow group" onclick="openModal('Gestión de Redes Sociales')">
+                        <div class="flex justify-between items-start mb-4">
+                            <i class="ph-fill ph-thumbs-up text-4xl"></i>
+                            <span class="bg-black text-white text-xs px-2 py-1 font-bold">SOCIAL</span>
+                        </div>
+                        <h4 class="text-xl font-bold mb-2 leading-tight group-hover:underline">GESTIÓN DE REDES SOCIALES</h4>
+                        <p class="text-sm text-gray-600 mb-4">Community management, parrillas de contenido y crecimiento orgánico.</p>
+                        <div class="text-right font-bold card-arrow">COTIZAR →</div>
+                    </div>
+
+                    <!-- Service Card 5 -->
+                    <div class="brutal-card brutal-shadow group" onclick="openModal('Diseño Gráfico')">
+                        <div class="flex justify-between items-start mb-4">
+                            <i class="ph-fill ph-pencil-circle text-4xl"></i>
+                            <span class="bg-black text-white text-xs px-2 py-1 font-bold">DISEÑO</span>
+                        </div>
+                        <h4 class="text-xl font-bold mb-2 leading-tight group-hover:underline">DISEÑO GRÁFICO</h4>
+                        <p class="text-sm text-gray-600 mb-4">Material POP, folletos, presentaciones, diseño editorial y más.</p>
+                        <div class="text-right font-bold card-arrow">COTIZAR →</div>
+                    </div>
+
+                    <!-- Service Card 6 -->
+                    <div class="brutal-card brutal-shadow group" onclick="openModal('Consultoría')">
+                        <div class="flex justify-between items-start mb-4">
+                            <i class="ph-fill ph-strategy text-4xl"></i>
+                            <span class="bg-black text-white text-xs px-2 py-1 font-bold">ESTRATEGIA</span>
+                        </div>
+                        <h4 class="text-xl font-bold mb-2 leading-tight group-hover:underline">CONSULTORÍA</h4>
+                        <p class="text-sm text-gray-600 mb-4">Auditoría de marca y estrategias de marketing para escalar tu negocio.</p>
+                        <div class="text-right font-bold card-arrow">COTIZAR →</div>
+                    </div>
+
+                    <!-- Service Card 7 -->
+                    <div class="brutal-card brutal-shadow group md:col-span-2 bg-gray-100" onclick="openModal('Registro de Marca (IMPI)')">
+                        <div class="flex justify-between items-start mb-4">
+                            <i class="ph-fill ph-trademark-registered text-4xl"></i>
+                            <span class="bg-black text-white text-xs px-2 py-1 font-bold">LEGAL</span>
+                        </div>
+                        <h4 class="text-xl font-bold mb-2 leading-tight group-hover:underline">REGISTRO DE MARCA (IMPI)</h4>
+                        <p class="text-sm text-gray-600 mb-4">Protege tu propiedad intelectual. Nosotros nos encargamos del trámite completo.</p>
+                        <div class="text-right font-bold card-arrow">COTIZAR →</div>
+                    </div>
+
+                </div>
+            </div>
+        </main>
     </div>
 
-    <!-- Script para la funcionalidad del formulario, transiciones y WhatsApp -->
+    <!-- MARQUEE FOOTER -->
+    <footer class="marquee-container flex-shrink-0 relative z-20">
+        <div class="marquee-content">
+             IBAMARK // MARKETING QUE VENDE // DISEÑO BRUTALISTA // SOLUCIONES 360 // COTIZA TU PROYECTO HOY // IBAMARK // MARKETING QUE VENDE // DISEÑO BRUTALISTA // SOLUCIONES 360 //
+        </div>
+    </footer>
+
+    <!-- MODAL -->
+    <div id="contactModal" class="modal-overlay" onclick="closeModal(event)">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <div class="flex justify-between items-center mb-6 border-b-4 border-black pb-2">
+                <h3 class="font-black text-xl uppercase">INTERÉS EN: <br><span id="modalServiceName" class="text-white bg-black px-1">SERVICIO</span></h3>
+                <button onclick="closeModalDirect()" class="font-bold text-2xl hover:text-white">&times;</button>
+            </div>
+            
+            <form onsubmit="sendWhatsApp(event)">
+                <label class="block font-bold mb-2 uppercase">Tu Nombre:</label>
+                <input type="text" id="modalName" class="brutal-input" placeholder="Ej: Juan Pérez" required>
+                
+                <label class="block font-bold mb-2 uppercase">Tu WhatsApp:</label>
+                <input type="tel" id="modalPhone" class="brutal-input" placeholder="Ej: 55 1234 5678" required>
+
+                <label class="block font-bold mb-2 uppercase">Detalles extra (Opcional):</label>
+                <input type="text" id="modalDetails" class="brutal-input" placeholder="Ej: Es para una empresa de...">
+
+                <button type="submit" class="brutal-btn w-full justify-center mt-4 bg-black text-white border-white hover:bg-white hover:text-black hover:border-black">
+                    ENVIAR A WHATSAPP <i class="ph-bold ph-whatsapp-logo"></i>
+                </button>
+            </form>
+            <p class="text-xs mt-4 font-bold text-center opacity-70">AL DAR CLIC SE ABRIRÁ TU WHATSAPP</p>
+        </div>
+    </div>
+
     <script>
-        // --- Variables Globales ---
-        const WHATSAPP_NUMBER = "5215572365913"; // +52 1 55 7236 5913
-        let formData = {}; // Almacena los datos del Formulario 1
-        
-        let currentDate = new Date();
-        let currentMonth = currentDate.getMonth();
-        let currentYear = currentDate.getFullYear();
-        let today = new Date(); // Para deshabilitar días pasados
+        let selectedService = "";
 
-        let selectedDate = null; // Almacena el objeto Date seleccionado
-        let selectedTime = null; // Almacena la cadena de tiempo seleccionada
-
-        const MONTH_NAMES = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
-        const DAY_NAMES = ["Dom", "Lun", "Mar", "Mié", "Jue", "Vie", "Sáb"];
-        const TIME_SLOTS = [
-            "09:00", "10:00", "11:00", 
-            "14:00", "15:00", "16:00",
-            "17:00", "18:00"
-        ];
-        
-        // --- Funciones de Transición de Vistas ---
-
-        function showBrandForm() {
-            transitionView('main-content', 'brand-design-form-container', 'toForm');
+        function openModal(serviceName) {
+            selectedService = serviceName;
+            document.getElementById('modalServiceName').innerText = serviceName;
+            const modal = document.getElementById('contactModal');
+            modal.style.display = 'flex';
+            // Focus on name input automatically
+            setTimeout(() => document.getElementById('modalName').focus(), 100);
         }
 
-        function hideBrandForm() {
-            transitionView('brand-design-form-container', 'main-content', 'toMain');
-        }
-        
-        function showScheduleView() {
-            transitionView('brand-design-form-container', 'schedule-view', 'toSchedule');
-            generateCalendar(currentYear, currentMonth); // Inicializa el calendario
-            document.getElementById('time-select-message').classList.remove('hidden');
+        function closeModal(event) {
+            if (event.target.id === 'contactModal') {
+                document.getElementById('contactModal').style.display = 'none';
+            }
         }
 
-        function transitionView(hideId, showId, type) {
-            const hideElement = document.getElementById(hideId);
-            const showElement = document.getElementById(showId);
-
-            hideElement.style.opacity = '0';
-            hideElement.style.pointerEvents = 'none';
-
-            setTimeout(() => {
-                hideElement.style.display = 'none'; 
-                showElement.style.display = 'block'; 
-                
-                setTimeout(() => {
-                    showElement.style.opacity = '1';
-                    showElement.style.pointerEvents = 'auto';
-                    if (type === 'toMain') {
-                        window.scrollTo({ top: 0, behavior: 'smooth' });
-                    }
-                }, 50); 
-                
-            }, 500); 
+        function closeModalDirect() {
+            document.getElementById('contactModal').style.display = 'none';
         }
 
-        // --- Lógica del Formulario 1 (Logo Data) ---
+        function sendWhatsApp(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('modalName').value;
+            const phoneInput = document.getElementById('modalPhone').value;
+            const details = document.getElementById('modalDetails').value;
+            
+            const message = `👋 Hola IBAMARK, me interesa el servicio de:
+👉 *${selectedService}*
 
-        // Lógica de selección de botones de estilo
-        document.querySelectorAll('.style-option').forEach(button => {
-            button.addEventListener('click', function() {
-                document.querySelectorAll('.style-option').forEach(btn => {
-                    btn.classList.remove('selected');
-                });
-                this.classList.add('selected');
-                document.getElementById('logo-style').value = this.getAttribute('data-value');
-            });
+👤 *Mi Nombre:* ${name}
+📱 *Mi Tel:* ${phoneInput}
+📝 *Detalles:* ${details ? details : 'N/A'}
+
+_Solicitado desde Landing de Servicios_`;
+
+            const phone = "525572365913";
+            const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+
+            window.open(url, '_blank');
+            
+            // Optional: Close modal after sending
+            closeModalDirect();
+        }
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                closeModalDirect();
+            }
         });
-
-        // Manejo del Envío del Formulario (Paso 1: Guarda datos y va al calendario)
-        document.getElementById('full-brand-form').addEventListener('submit', function(event) {
-            event.preventDefault();
-            const submitButton = event.target.querySelector('button[type="submit"]');
-            const logoStyleInput = document.getElementById('logo-style');
-
-            if (!logoStyleInput.value) {
-                const step2Title = document.querySelector('.form-step-title[data-step="2"]');
-                step2Title.style.transition = 'color 0.2s';
-                step2Title.style.color = '#ff4d4d'; 
-                setTimeout(() => {
-                    step2Title.style.color = 'white'; 
-                }, 500);
-                return;
-            }
-
-            // Almacenar datos en el objeto global
-            formData.name = document.getElementById('brand-name').value;
-            formData.style = logoStyleInput.value;
-            formData.colors = document.getElementById('brand-colors').value;
-            formData.sector = document.getElementById('brand-sector').value;
-            formData.observations = document.getElementById('brand-observations').value || 'Sin observaciones.';
-            
-            submitButton.disabled = true;
-            submitButton.textContent = 'Procesando Información...';
-            submitButton.classList.remove('bg-lime-400', 'hover:bg-lime-300');
-            submitButton.classList.add('bg-gray-500');
-
-            setTimeout(() => {
-                submitButton.textContent = '¡Información Lista!';
-                showScheduleView();
-                
-                // Restablecer botón al volver
-                submitButton.textContent = 'Agendar Estrategia';
-                submitButton.classList.remove('bg-gray-500');
-                submitButton.classList.add('bg-lime-400', 'hover:bg-lime-300');
-                submitButton.disabled = false;
-            }, 1000); 
-        });
-        
-        // --- Nueva Función para Envío Directo de WhatsApp (Servicios Secundarios) ---
-        
-        /**
-         * Construye y abre la URL de WhatsApp para la solicitud de un servicio directo.
-         * @param {string} serviceName - El nombre del servicio solicitado.
-         */
-        function sendServiceWhatsApp(serviceName) {
-            const message = `
-¡SOLICITUD DE SERVICIO DIRECTO!
-
-*Servicio de Interés:* ${serviceName}
-
-Hola, estoy interesado(a) en este servicio. Por favor, envíame más información para iniciar el proceso.
-`;
-            
-            const encodedMessage = encodeURIComponent(message.trim());
-            const whatsappURL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
-            
-            // Abrir WhatsApp en una nueva pestaña/ventana
-            window.open(whatsappURL, '_blank');
-        }
-
-
-        // --- Lógica del Calendario (Paso 2) ---
-
-        function updateDateDisplay() {
-            const display = document.getElementById('selected-date-display');
-            const whatsappBtn = document.getElementById('whatsapp-submit-btn');
-            const errorMsg = document.getElementById('whatsapp-error-message');
-
-            if (selectedDate && selectedTime) {
-                const day = selectedDate.getDate().toString().padStart(2, '0');
-                const month = MONTH_NAMES[selectedDate.getMonth()];
-                const year = selectedDate.getFullYear();
-                display.textContent = `Día: ${day} de ${month} | Hora: ${selectedTime}`;
-                
-                // Habilitar botón de WhatsApp
-                whatsappBtn.disabled = false;
-                whatsappBtn.classList.remove('bg-gray-500/50', 'cursor-not-allowed');
-                whatsappBtn.classList.add('bg-lime-400', 'hover:bg-lime-300');
-                errorMsg.classList.add('hidden');
-
-            } else if (selectedDate) {
-                const day = selectedDate.getDate().toString().padStart(2, '0');
-                const month = MONTH_NAMES[selectedDate.getMonth()];
-                display.textContent = `Día seleccionado: ${day} de ${month}. Elige la hora.`;
-                
-                // Deshabilitar botón
-                whatsappBtn.disabled = true;
-                whatsappBtn.classList.add('bg-gray-500/50', 'cursor-not-allowed');
-                whatsappBtn.classList.remove('bg-lime-400', 'hover:bg-lime-300');
-                errorMsg.classList.add('hidden');
-                
-            } else {
-                display.textContent = '';
-                whatsappBtn.disabled = true;
-                whatsappBtn.classList.add('bg-gray-500/50', 'cursor-not-allowed');
-                whatsappBtn.classList.remove('bg-lime-400', 'hover:bg-lime-300');
-                errorMsg.classList.remove('hidden');
-            }
-        }
-
-        function handleDateClick(date) {
-            if (selectedDate && selectedDate.getTime() !== date.getTime()) {
-                selectedTime = null;
-                document.querySelectorAll('.time-slot').forEach(slot => {
-                    slot.classList.remove('time-selected');
-                });
-            }
-            
-            selectedDate = date;
-            
-            document.querySelectorAll('.day-cell').forEach(cell => cell.classList.remove('day-selected'));
-            const clickedCell = document.querySelector(`.day-available[data-date="${date.toDateString()}"]`);
-            if (clickedCell) {
-                clickedCell.classList.add('day-selected');
-            }
-            
-            document.getElementById('time-select-message').classList.add('hidden');
-            updateDateDisplay();
-        }
-
-        function handleTimeClick(timeSlot) {
-            if (!selectedDate) return; // Debe haber una fecha seleccionada primero
-            
-            selectedTime = timeSlot;
-            
-            document.querySelectorAll('.time-slot').forEach(slot => slot.classList.remove('time-selected'));
-            document.querySelector(`.time-slot[data-time="${timeSlot}"]`).classList.add('time-selected');
-            
-            updateDateDisplay();
-        }
-        
-        function generateTimeSlots() {
-            const container = document.getElementById('time-slots-container');
-            container.innerHTML = '';
-            
-            TIME_SLOTS.forEach(slot => {
-                const slotDiv = document.createElement('div');
-                slotDiv.className = 'time-slot';
-                slotDiv.setAttribute('data-time', slot);
-                slotDiv.textContent = slot;
-                slotDiv.onclick = () => handleTimeClick(slot);
-                container.appendChild(slotDiv);
-            });
-        }
-        
-        function generateCalendar(year, month) {
-            const calendarDays = document.getElementById('calendar-days');
-            const monthYearDisplay = document.getElementById('current-month-year');
-            calendarDays.innerHTML = '';
-            
-            DAY_NAMES.forEach(day => {
-                const header = document.createElement('div');
-                header.className = 'day-header';
-                header.textContent = day;
-                calendarDays.appendChild(header);
-            });
-
-            const firstDay = new Date(year, month, 1);
-            const lastDay = new Date(year, month + 1, 0);
-            
-            let startDay = firstDay.getDay(); 
-            for (let i = 0; i < startDay; i++) {
-                calendarDays.appendChild(document.createElement('div'));
-            }
-
-            for (let day = 1; day <= lastDay.getDate(); day++) {
-                const date = new Date(year, month, day);
-                const cell = document.createElement('div');
-                cell.textContent = day;
-                cell.className = 'day-cell';
-
-                const isPast = date < today && date.getDate() !== today.getDate();
-                
-                if (isPast) {
-                    cell.classList.add('day-disabled');
-                } else {
-                    cell.classList.add('day-available');
-                    cell.setAttribute('data-date', date.toDateString());
-                    cell.onclick = () => handleDateClick(date);
-                    
-                    if (selectedDate && selectedDate.toDateString() === date.toDateString()) {
-                        cell.classList.add('day-selected');
-                    }
-                }
-                
-                calendarDays.appendChild(cell);
-            }
-
-            monthYearDisplay.textContent = `${MONTH_NAMES[month].toUpperCase()} ${year}`;
-            generateTimeSlots(); 
-            updateDateDisplay(); 
-        }
-
-        // Navegación del calendario
-        document.getElementById('prev-month').addEventListener('click', () => {
-            currentMonth--;
-            if (currentMonth < 0) {
-                currentMonth = 11;
-                currentYear--;
-            }
-            const newDate = new Date(currentYear, currentMonth, 1);
-            if (newDate < new Date(today.getFullYear(), today.getMonth(), 1)) {
-                 currentMonth = today.getMonth();
-                 currentYear = today.getFullYear();
-            }
-            generateCalendar(currentYear, currentMonth);
-        });
-
-        document.getElementById('next-month').addEventListener('click', () => {
-            currentMonth++;
-            if (currentMonth > 11) {
-                currentMonth = 0;
-                currentYear++;
-            }
-            generateCalendar(currentYear, currentMonth);
-        });
-        
-        // --- Lógica Final de Envío por WhatsApp (Cita Agendada) ---
-        
-        function sendWhatsAppMessage() {
-            if (!selectedDate || !selectedTime) {
-                const errorMsg = document.getElementById('whatsapp-error-message');
-                errorMsg.textContent = "Por favor, selecciona una fecha y una hora.";
-                errorMsg.classList.remove('hidden');
-                return;
-            }
-            
-            const selectedDay = selectedDate.toLocaleDateString('es-ES', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
-
-            const message = `
-¡SOLICITUD DE ESTRATEGIA DE DISEÑO RECIBIDA!
-
-*--- Datos de la Marca ---*
-*Nombre:* ${formData.name}
-*Estilo:* ${formData.style}
-*Colores:* ${formData.colors}
-*Sector:* ${formData.sector}
-*Observaciones:* ${formData.observations}
-
-*--- Cita Agendada ---*
-*Día:* ${selectedDay}
-*Hora:* ${selectedTime}
-`;
-            
-            const encodedMessage = encodeURIComponent(message.trim());
-            const whatsappURL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
-            
-            window.open(whatsappURL, '_blank');
-            
-            const whatsappBtn = document.getElementById('whatsapp-submit-btn');
-            whatsappBtn.textContent = '¡Mensaje Enviado!';
-            whatsappBtn.classList.remove('bg-lime-400', 'hover:bg-lime-300');
-            whatsappBtn.classList.add('bg-green-600');
-        }
-
-        // Inicialización al cargar
-        document.getElementById('brand-design-form-container').style.display = 'none';
-        document.getElementById('schedule-view').style.display = 'none';
-
     </script>
 </body>
 </html>
