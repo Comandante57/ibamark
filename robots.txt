@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://comandante57.github.io/ibamark/sitemap.xml
