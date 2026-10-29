@@ -4,261 +4,331 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ibamark · Marketing, branding y pauta que convierte</title>
-  <meta name="description" content="Estrategia publicitaria, branding, diseño, redes y registro de marca. Ibamark · CDMX." />
+  <meta name="description" content="Estrategia publicitaria en Meta Ads, branding, diseño, redes y registro de marca. Agencia en CDMX." />
+  <link rel="canonical" href="https://comandante57.github.io/ibamark/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="es_MX" />
+  <meta property="og:title" content="ibamark · Marketing, branding y pauta que convierte" />
+  <meta property="og:description" content="Estrategia publicitaria en Meta Ads, branding, diseño, redes y registro de marca. Agencia en CDMX." />
+  <meta property="og:url" content="https://comandante57.github.io/ibamark/" />
+  <meta property="og:site_name" content="ibamark" />
+  <meta name="twitter:card" content="summary" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
-    :root {
-      --bg:#000;--surface:#111;--border:#2a2a2a;--text:#fff;--muted:#a1a1a1;--muted-2:#737373;--green:#22c55e;
-      --font:"Inter",system-ui,-apple-system,sans-serif;
-    }
-    *{box-sizing:border-box;margin:0;padding:0}
-    html{scroll-behavior:smooth}
-    body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
-    a{color:inherit;text-decoration:none}
-    header{position:sticky;top:0;z-index:100;background:rgba(0,0,0,.85);backdrop-filter:blur(12px);padding:.85rem 1.5rem}
-    .header-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:1rem}
-    .logo-img{height:22px;width:auto;display:block}
-    .nav{display:flex;align-items:center;gap:1.35rem;font-size:.875rem;color:var(--muted)}
-    .nav a:hover{color:var(--text)}
-    .nav-divider{width:1px;height:16px;background:#333}
-    .btn-nav{background:#fff;color:#000;font-weight:600;font-size:.85rem;padding:.45rem 1rem;border-radius:999px}
-    .btn-nav:hover{opacity:.9}
-    .hero{max-width:1100px;margin:0 auto;padding:5rem 1.5rem 3rem}
-    .hero h1{font-size:clamp(2.2rem,5.5vw,3.15rem);font-weight:600;letter-spacing:-.04em;line-height:1.1;margin-bottom:1.2rem;max-width:18ch}
-    .hero-sub{font-size:1.05rem;color:var(--muted);max-width:42ch;margin-bottom:2rem;line-height:1.55}
-    .hero-ctas{display:flex;flex-wrap:wrap;gap:.75rem;margin-bottom:2rem}
-    .btn-primary{display:inline-flex;align-items:center;justify-content:center;background:#fff;color:#000;font-weight:600;font-size:.95rem;padding:.7rem 1.35rem;border-radius:999px}
-    .btn-primary:hover{opacity:.9}
-    .btn-secondary{display:inline-flex;align-items:center;justify-content:center;background:#1a1a1a;color:var(--text);font-weight:500;font-size:.95rem;padding:.7rem 1.35rem;border-radius:999px;border:1px solid #333}
-    .btn-secondary:hover{background:#222}
-    .hero-note{font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted-2)}
-    .strip{max-width:1100px;margin:0 auto;padding:0 1.5rem 3.5rem}
-    .strip-inner{display:flex;flex-wrap:wrap;gap:2rem 3rem;padding:1.5rem 0;border-top:1px solid #1a1a1a;border-bottom:1px solid #1a1a1a}
-    .strip-item strong{display:block;font-size:1.25rem;font-weight:600;letter-spacing:-.02em}
-    .strip-item span{font-size:.85rem;color:var(--muted)}
-    .section{max-width:1100px;margin:0 auto;padding:4rem 1.5rem}
-    .label{font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted-2);margin-bottom:.75rem}
-    .section h2{font-size:clamp(1.65rem,4vw,2.2rem);font-weight:600;letter-spacing:-.03em;line-height:1.15;margin-bottom:.75rem}
-    .section-lead{color:var(--muted);max-width:48ch;margin-bottom:2.25rem;font-size:1rem}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem}
-    .card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:1.45rem;display:flex;flex-direction:column;transition:border-color .2s}
-    .card:hover{border-color:#3a3a3a}
-    .card.featured{border-color:#444;background:#141414}
-    .tag{display:inline-block;font-size:.68rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--muted-2);border:1px solid #333;border-radius:999px;padding:.25rem .65rem;margin-bottom:.75rem;width:fit-content}
-    .tag.green{color:var(--green);border-color:rgba(34,197,94,.35)}
-    .card h3{font-size:1.1rem;font-weight:600;letter-spacing:-.02em;margin-bottom:.4rem}
-    .card p{font-size:.9rem;color:var(--muted);margin-bottom:1rem;flex-grow:1}
-    .card .link{font-size:.9rem;font-weight:500;color:#fff}
-    .card .link:hover{opacity:.8}
-    .price-line{font-size:.9rem;color:var(--muted-2);margin-bottom:1rem}
-    .price-line strong{color:var(--text);font-weight:600;font-size:1.05rem}
-    .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
-    .step-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:1.35rem}
-    .step-num{font-size:.72rem;color:var(--muted-2);margin-bottom:.6rem;letter-spacing:.04em}
-    .step-card h3{font-size:1.05rem;font-weight:600;margin-bottom:.35rem}
-    .step-card p{font-size:.9rem;color:var(--muted)}
-    .pain{max-width:640px;margin:0 auto;padding:1rem 1.5rem 3.5rem;text-align:center}
-    .pain p{font-size:1.1rem;color:var(--muted);line-height:1.65}
-    .pain strong{color:var(--text);font-weight:500}
-    .faq{max-width:640px;margin:0 auto;padding:2rem 1.5rem 4rem}
-    .faq h2{font-size:1.5rem;font-weight:600;letter-spacing:-.02em;margin-bottom:1.25rem}
-    details{border-top:1px solid #1a1a1a;padding:1rem 0}
-    details:last-child{border-bottom:1px solid #1a1a1a}
-    summary{cursor:pointer;font-weight:500;font-size:.95rem;list-style:none;display:flex;justify-content:space-between;align-items:center}
-    summary::-webkit-details-marker{display:none}
-    summary::after{content:"+";color:var(--muted-2);font-size:1.2rem}
-    details[open] summary::after{content:"−"}
-    details p{margin-top:.65rem;font-size:.9rem;color:var(--muted)}
-    footer{border-top:1px solid #1a1a1a;padding:3rem 1.5rem 2.5rem}
-    .footer-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:2rem}
-    .footer-col h4{font-size:.75rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted-2);margin-bottom:.85rem}
-    .footer-col a{display:block;font-size:.9rem;color:var(--muted);margin-bottom:.4rem}
-    .footer-col a:hover{color:var(--text)}
-    .social-links{display:flex;gap:.75rem;margin-top:.85rem}
-    .social-links a{width:36px;height:36px;border-radius:50%;border:1px solid #333;display:flex;align-items:center;justify-content:center;color:var(--muted)}
-    .social-links a:hover{border-color:#666;color:var(--text)}
-    .social-links svg{width:16px;height:16px;fill:currentColor}
-    .footer-bottom{max-width:1100px;margin:2.5rem auto 0;padding-top:1.5rem;border-top:1px solid #1a1a1a;font-size:.75rem;color:var(--muted-2)}
-    @media(max-width:900px){.footer-inner{grid-template-columns:1fr 1fr}.steps{grid-template-columns:1fr}}
-    @media(max-width:700px){.nav a:not(.btn-nav){display:none}.nav-divider{display:none}.hero{padding-top:3.25rem}.footer-inner{grid-template-columns:1fr}}
+
+:root{--bg:#000;--surface:#111;--border:#2a2a2a;--text:#fff;--muted:#a1a1a1;--muted-2:#737373;--green:#22c55e;--font:"Inter",system-ui,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.65;-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;flex-direction:column}
+a{color:inherit;text-decoration:none}
+main{flex:1;width:100%;max-width:640px;margin:0 auto;padding:3rem 1.25rem 4rem}
+.crumb{font-size:.8rem;color:var(--muted-2);margin-bottom:1.5rem}
+.crumb a:hover{color:var(--muted)}
+h1{font-size:clamp(1.85rem,4.5vw,2.45rem);font-weight:600;letter-spacing:-.035em;line-height:1.15;margin-bottom:.75rem}
+.lead{color:var(--muted);font-size:1.05rem;margin-bottom:2rem;max-width:44ch}
+.block{margin-bottom:2rem}
+.block h2{font-size:1.2rem;font-weight:600;margin-bottom:.5rem}
+.block p,.block li{color:var(--muted);font-size:.95rem;margin-bottom:.45rem}
+.block strong{color:var(--text);font-weight:500}
+ul.clean{list-style:none;margin:1rem 0}
+ul.clean li{padding:.3rem 0 .3rem 1.2rem;position:relative;color:var(--muted);font-size:.92rem}
+ul.clean li::before{content:"✓";position:absolute;left:0;color:#fff;font-size:.75rem}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:1.35rem;margin:1rem 0}
+.card h3{font-size:1rem;font-weight:600;margin-bottom:.35rem}
+.card p{font-size:.9rem;color:var(--muted)}
+.levels{display:flex;flex-direction:column;gap:.75rem;margin:1.25rem 0}
+.level{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:1.15rem 1.25rem}
+.level h3{font-size:1rem;font-weight:600;margin-bottom:.25rem}
+.level p{font-size:.88rem;color:var(--muted)}
+.cta{margin-top:2.5rem;padding:1.75rem;background:var(--surface);border:1px solid var(--border);border-radius:16px;text-align:center}
+.cta h2{font-size:1.2rem;font-weight:600;margin-bottom:.4rem}
+.cta p{color:var(--muted);font-size:.9rem;margin-bottom:1rem}
+.btn{display:inline-flex;background:#fff;color:#000;font-weight:600;padding:.7rem 1.35rem;border-radius:999px;font-size:.95rem}
+.btn:hover{opacity:.9}
+.price{font-size:1.75rem;font-weight:600;letter-spacing:-.02em;margin:.5rem 0 .25rem}
+.price small{font-size:.8rem;font-weight:400;color:var(--muted)}
+.meta{font-size:.8rem;color:var(--muted-2);margin-bottom:1rem}
+.quote{border-left:2px solid #333;padding-left:1.15rem;margin:1.25rem 0;color:var(--muted);font-size:.95rem}
+.quote cite{display:block;margin-top:.5rem;font-size:.8rem;color:var(--muted-2);font-style:normal}
+.list a{display:block;background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:1.15rem 1.25rem;margin-bottom:.75rem}
+.list a:hover{border-color:#444}
+.list h2{font-size:1.05rem;font-weight:600;margin-bottom:.25rem}
+.list p{font-size:.88rem;color:var(--muted)}
+.tag{font-size:.65rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--green);margin-bottom:.35rem}
+details{border-top:1px solid #1a1a1a;padding:1rem 0}
+details:last-child{border-bottom:1px solid #1a1a1a}
+summary{cursor:pointer;font-weight:500;font-size:.95rem;list-style:none;display:flex;justify-content:space-between;align-items:center}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--muted-2);font-size:1.15rem}
+details[open] summary::after{content:"−"}
+details p{margin-top:.65rem;font-size:.9rem;color:var(--muted)}
+.contact-row{margin:1rem 0;padding:1rem 0;border-bottom:1px solid #1a1a1a}
+.contact-row strong{display:block;font-size:.8rem;color:var(--muted-2);margin-bottom:.25rem;text-transform:uppercase;letter-spacing:.04em}
+.contact-row a,.contact-row span{color:#fff;font-size:1.05rem}
+.label{font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted-2);margin-bottom:.5rem}
+
+
+header.site-header{position:sticky;top:0;z-index:1000;background:#000;border-bottom:1px solid #1a1a1a}
+.header-bar{max-width:1100px;margin:0 auto;padding:.85rem 1.25rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;position:relative;z-index:1002}
+.logo-img{height:22px;width:auto;display:block}
+.nav-desktop{display:flex;align-items:center;gap:1.15rem;font-size:.875rem;color:var(--muted)}
+.nav-desktop a:hover{color:var(--text)}
+.nav-desktop .btn-nav{background:#fff;color:#000;font-weight:600;font-size:.85rem;padding:.45rem 1rem;border-radius:999px;margin-left:.25rem}
+.nav-desktop .btn-nav:hover{opacity:.9;color:#000}
+.hamburger{display:none;background:none;border:0;padding:0;cursor:pointer;width:44px;height:44px;align-items:center;justify-content:center;position:relative;z-index:1003}
+.hamburger-box{width:20px;height:14px;position:relative;display:block}
+.hamburger-box i{display:block;position:absolute;left:0;width:20px;height:2px;background:#fff;border-radius:1px;transition:transform .2s ease,top .2s ease,opacity .2s ease}
+.hamburger-box i:nth-child(1){top:0}
+.hamburger-box i:nth-child(2){top:6px}
+.hamburger-box i:nth-child(3){top:12px}
+.hamburger.is-open .hamburger-box i:nth-child(1){top:6px;transform:rotate(45deg)}
+.hamburger.is-open .hamburger-box i:nth-child(2){opacity:0}
+.hamburger.is-open .hamburger-box i:nth-child(3){top:6px;transform:rotate(-45deg)}
+.nav-mobile{display:none;position:fixed;top:0;left:0;right:0;bottom:0;width:100%;height:100%;min-height:100vh;min-height:100dvh;background:#000;z-index:1001;padding:5rem 1.5rem 2.5rem;overflow-y:auto;-webkit-overflow-scrolling:touch}
+.nav-mobile.is-open{display:block !important}
+.nav-mobile a{display:block;padding:1rem 0;border-bottom:1px solid #1f1f1f;font-size:1.1rem;color:#fff;font-weight:500}
+.nav-mobile a.muted{color:#a1a1a1;font-weight:400;font-size:1rem}
+.nav-mobile .wa-link{margin-top:1.5rem;display:inline-flex;background:#fff;color:#000;font-weight:600;padding:.75rem 1.35rem;border-radius:999px;border:0;border-bottom:0}
+body.menu-open{overflow:hidden;height:100vh}
+body.menu-open .logo-img{visibility:hidden}
+body.menu-open .nav-desktop{visibility:hidden}
+
+footer.site-footer{border-top:1px solid #1a1a1a;padding:3rem 1.25rem 2rem;margin-top:auto}
+.footer-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:2rem}
+.footer-grid h4{font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted-2);margin-bottom:.85rem}
+.footer-grid a{display:block;font-size:.9rem;color:var(--muted);margin-bottom:.4rem}
+.footer-grid a:hover{color:var(--text)}
+.footer-brand p{font-size:.9rem;color:var(--muted);max-width:26ch;margin-top:.5rem}
+.social-links{display:flex;gap:.65rem;margin-top:1rem}
+.social-links a{width:36px;height:36px;border-radius:50%;border:1px solid #333;display:flex;align-items:center;justify-content:center;color:var(--muted)}
+.social-links a:hover{border-color:#666;color:var(--text)}
+.social-links svg{width:16px;height:16px;fill:currentColor}
+.footer-bottom{max-width:1100px;margin:2rem auto 0;padding-top:1.25rem;border-top:1px solid #1a1a1a;font-size:.75rem;color:var(--muted-2);display:flex;flex-wrap:wrap;gap:.5rem 1.25rem}
+.footer-bottom a{color:var(--muted-2)}
+.footer-bottom a:hover{color:var(--muted)}
+.wa-float{position:fixed;right:1.1rem;bottom:1.1rem;z-index:900;width:56px;height:56px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,.45)}
+.wa-float svg{width:28px;height:28px;fill:#fff}
+@media(max-width:900px){
+  .nav-desktop{display:none}
+  .hamburger{display:flex}
+  .footer-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:560px){
+  .footer-grid{grid-template-columns:1fr}
+}
+
+
+.hero{max-width:1100px;margin:0 auto;padding:4.5rem 1.25rem 3rem;width:100%}
+.hero h1{font-size:clamp(2.2rem,5.5vw,3.15rem);font-weight:600;letter-spacing:-.04em;line-height:1.1;margin-bottom:1.2rem;max-width:18ch}
+.hero-sub{font-size:1.05rem;color:var(--muted);max-width:42ch;margin-bottom:2rem}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:.75rem;margin-bottom:2rem}
+.btn-primary{display:inline-flex;background:#fff;color:#000;font-weight:600;font-size:.95rem;padding:.7rem 1.35rem;border-radius:999px}
+.btn-secondary{display:inline-flex;background:#1a1a1a;color:var(--text);font-weight:500;font-size:.95rem;padding:.7rem 1.35rem;border-radius:999px;border:1px solid #333}
+.hero-note{font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted-2)}
+.strip{max-width:1100px;margin:0 auto;padding:0 1.25rem 3rem;width:100%}
+.strip-inner{display:flex;flex-wrap:wrap;gap:2rem 3rem;padding:1.5rem 0;border-top:1px solid #1a1a1a;border-bottom:1px solid #1a1a1a}
+.strip-item strong{display:block;font-size:1.25rem;font-weight:600}
+.strip-item span{font-size:.85rem;color:var(--muted)}
+.section{max-width:1100px;margin:0 auto;padding:3.5rem 1.25rem;width:100%}
+.section h2{font-size:clamp(1.65rem,4vw,2.2rem);font-weight:600;letter-spacing:-.03em;margin-bottom:.75rem}
+.section-lead{color:var(--muted);max-width:48ch;margin-bottom:2rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem}
+.card-link{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:1.45rem;display:flex;flex-direction:column;transition:border-color .2s}
+.card-link:hover{border-color:#3a3a3a}
+.card-link.featured{border-color:#444;background:#141414}
+.card-link h3{font-size:1.1rem;font-weight:600;margin-bottom:.4rem}
+.card-link p{font-size:.9rem;color:var(--muted);margin-bottom:1rem;flex-grow:1}
+.card-link .link{font-size:.9rem;font-weight:500}
+.price-line{font-size:.9rem;color:var(--muted-2);margin-bottom:1rem}
+.price-line strong{color:var(--text);font-size:1.05rem}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+.step-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:1.35rem}
+.step-num{font-size:.72rem;color:var(--muted-2);margin-bottom:.6rem}
+.step-card h3{font-size:1.05rem;font-weight:600;margin-bottom:.35rem}
+.step-card p{font-size:.9rem;color:var(--muted)}
+.pain{max-width:640px;margin:0 auto;padding:1rem 1.25rem 3rem;text-align:center}
+.pain p{font-size:1.1rem;color:var(--muted)}
+.pain strong{color:var(--text);font-weight:500}
+.faq-home{max-width:640px;margin:0 auto;padding:2rem 1.25rem 4rem;width:100%}
+.faq-home h2{font-size:1.5rem;font-weight:600;margin-bottom:1.25rem}
+@media(max-width:700px){.steps{grid-template-columns:1fr}}
+main.home-main{max-width:none;padding:0;margin:0}
+
   </style>
 </head>
+
 <body>
-  <header>
-    <div class="header-inner">
+  <header class="site-header">
+    <div class="header-bar">
       <a href="index.html" aria-label="ibamark"><img src="logo_ibamark.svg" alt="ibamark" class="logo-img" /></a>
-      <nav class="nav">
+      <nav class="nav-desktop" aria-label="Principal">
         <a href="servicios.html">Servicios</a>
         <a href="estrategia.html">Estrategia</a>
-        <a href="como-funciona.html">Cómo funciona</a>
-        <span class="nav-divider"></span>
-        <a class="btn-nav" href="https://wa.me/525572365913?text=Hola%20Ibamark%2C%20quiero%20información" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="nosotros.html">Nosotros</a>
+        <a href="casos.html">Casos</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contacto.html">Contacto</a>
+        <a class="btn-nav" href="https://wa.me/525572365913?text=Hola%20Ibamark%2C%20quiero%20informaci%C3%B3n" target="_blank" rel="noopener">WhatsApp</a>
       </nav>
+            <button type="button" class="hamburger" id="menuBtn" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu">
+        <span class="hamburger-box" aria-hidden="true"><i></i><i></i><i></i></span>
+      </button>
     </div>
+        <nav class="nav-mobile" id="mobileMenu" aria-label="Menú móvil" hidden>
+      <a href="index.html">Inicio</a>
+      <a href="servicios.html">Servicios</a>
+      <a href="estrategia.html">Estrategia de pauta</a>
+      <a href="analisis.html">Análisis de campañas</a>
+      <a href="branding.html">Branding</a>
+      <a href="ads.html">Publicidad</a>
+      <a href="redes.html">Redes sociales</a>
+      <a href="diseno.html">Diseño gráfico</a>
+      <a href="produccion.html">Foto y video</a>
+      <a href="registro-marca.html">Registro de marca</a>
+      <a class="muted" href="nosotros.html">Nosotros</a>
+      <a class="muted" href="casos.html">Casos</a>
+      <a class="muted" href="como-funciona.html">Cómo funciona</a>
+      <a class="muted" href="faq.html">Preguntas</a>
+      <a class="muted" href="contacto.html">Contacto</a>
+      <a class="wa-link" href="https://wa.me/525572365913?text=Hola%20Ibamark%2C%20quiero%20informaci%C3%B3n" target="_blank" rel="noopener">WhatsApp</a>
+    </nav>
   </header>
 
+  <main class="home-main">
   <section class="hero">
     <h1>Marketing que se entiende: pauta, marca y diseño que convierten.</h1>
-    <p class="hero-sub">
-      Armamos la estrategia de anuncios, las piezas y el mensaje con psicología de conversión.
-      También branding, redes, diseño y registro de marca. CDMX.
-    </p>
+    <p class="hero-sub">Armamos la estrategia de anuncios, las piezas y el mensaje con psicología de conversión. También branding, redes, diseño y registro de marca. CDMX.</p>
     <div class="hero-ctas">
       <a class="btn-primary" href="estrategia.html">Ver estrategia de pauta</a>
       <a class="btn-secondary" href="servicios.html">Todos los servicios</a>
     </div>
     <p class="hero-note">Estrategia · Branding · Ads · Redes · Diseño · IMPI</p>
   </section>
-
-  <div class="strip">
-    <div class="strip-inner">
-      <div class="strip-item"><strong>Pauta + psicología</strong><span>Meta Ads con ganchos que retienen</span></div>
-      <div class="strip-item"><strong>Marca completa</strong><span>Logo, identidad y registro</span></div>
-      <div class="strip-item"><strong>Contenido</strong><span>Diseño, foto, video y redes</span></div>
-    </div>
-  </div>
-
+  <div class="strip"><div class="strip-inner">
+    <div class="strip-item"><strong>Pauta + psicología</strong><span>Meta Ads con ganchos que retienen</span></div>
+    <div class="strip-item"><strong>Marca completa</strong><span>Logo, identidad y registro</span></div>
+    <div class="strip-item"><strong>Contenido</strong><span>Diseño, foto, video y redes</span></div>
+  </div></div>
   <section class="section">
     <p class="label">Qué hacemos</p>
     <h2>Servicios</h2>
     <p class="section-lead">Elige el área. Cada una tiene su página con el detalle y cómo cotizar.</p>
     <div class="grid">
-      <a class="card featured" href="estrategia.html">
-        <span class="tag green">Principal</span>
-        <h3>Estrategia de pauta y conversión</h3>
-        <p>Campañas en Meta, carruseles, copy con gatillos mentales, embudos y optimización. Las piezas publicitarias van dentro de este servicio.</p>
-        <span class="link">Ver estrategia →</span>
-      </a>
-      <a class="card" href="analisis.html">
-        <span class="tag">Entrada</span>
-        <h3>Análisis de campañas</h3>
-        <p>Diagnóstico de pauta: qué falla, qué desperdicia presupuesto y qué corregir primero. Informe PDF + plan de acción.</p>
-        <p class="price-line"><strong>$2,300 MXN</strong> · pago único</p>
-        <span class="link">Ver análisis →</span>
-      </a>
-      <a class="card" href="branding.html">
-        <span class="tag">Marca</span>
-        <h3>Branding y logos</h3>
-        <p>Identidad visual, logotipo, manual de marca y sistema gráfico memorable.</p>
-        <span class="link">Ver branding →</span>
-      </a>
-      <a class="card" href="ads.html">
-        <span class="tag">Ads</span>
-        <h3>Publicidad (Meta y Google)</h3>
-        <p>Configuración, segmentación y optimización de campañas orientadas a leads y ventas.</p>
-        <span class="link">Ver ads →</span>
-      </a>
-      <a class="card" href="redes.html">
-        <span class="tag">Social</span>
-        <h3>Gestión de redes</h3>
-        <p>Community management, parrillas de contenido y crecimiento orgánico.</p>
-        <span class="link">Ver redes →</span>
-      </a>
-      <a class="card" href="diseno.html">
-        <span class="tag">Diseño</span>
-        <h3>Diseño gráfico</h3>
-        <p>Material POP, folletos, presentaciones, editorial y piezas para campañas.</p>
-        <span class="link">Ver diseño →</span>
-      </a>
-      <a class="card" href="produccion.html">
-        <span class="tag">Producción</span>
-        <h3>Fotografía y video</h3>
-        <p>Contenido audiovisual para redes, productos y corporativo.</p>
-        <span class="link">Ver producción →</span>
-      </a>
-      <a class="card" href="registro-marca.html">
-        <span class="tag">Legal</span>
-        <h3>Registro de marca (IMPI)</h3>
-        <p>Trámite completo para proteger tu propiedad intelectual en México.</p>
-        <span class="link">Ver registro →</span>
-      </a>
+      <a class="card-link featured" href="estrategia.html"><span class="tag">Principal</span><h3>Estrategia de pauta y conversión</h3><p>Campañas en Meta, carruseles, copy con gatillos mentales, embudos y optimización.</p><span class="link">Ver estrategia →</span></a>
+      <a class="card-link" href="analisis.html"><span class="tag" style="color:var(--muted-2);border-color:#333">Entrada</span><h3>Análisis de campañas</h3><p>Diagnóstico de pauta y plan de acción prioritario.</p><p class="price-line"><strong>$2,300 MXN</strong> · pago único</p><span class="link">Ver análisis →</span></a>
+      <a class="card-link" href="branding.html"><h3>Branding y logos</h3><p>Identidad visual, logotipo y manual de marca.</p><span class="link">Ver branding →</span></a>
+      <a class="card-link" href="ads.html"><h3>Publicidad (Meta y Google)</h3><p>Configuración y optimización de campañas.</p><span class="link">Ver ads →</span></a>
+      <a class="card-link" href="redes.html"><h3>Gestión de redes</h3><p>Community management y crecimiento orgánico.</p><span class="link">Ver redes →</span></a>
+      <a class="card-link" href="diseno.html"><h3>Diseño gráfico</h3><p>POP, presentaciones y piezas de campaña.</p><span class="link">Ver diseño →</span></a>
+      <a class="card-link" href="produccion.html"><h3>Fotografía y video</h3><p>Contenido audiovisual profesional.</p><span class="link">Ver producción →</span></a>
+      <a class="card-link" href="registro-marca.html"><h3>Registro de marca (IMPI)</h3><p>Trámite completo en México.</p><span class="link">Ver registro →</span></a>
     </div>
   </section>
-
   <section class="pain">
-    <p>
-      <strong>No vendemos “posts sueltos”.</strong>
-      Vendemos claridad: qué mensaje, qué pieza y qué pauta hacen que alguien deje de scrollear y te escriba.
-      La estrategia de pauta incluye el diseño de carruseles y el sistema de conversión; se cotiza según tu negocio.
-    </p>
+    <p><strong>No vendemos “posts sueltos”.</strong> Vendemos claridad: qué mensaje, qué pieza y qué pauta hacen que alguien deje de scrollear y te escriba.</p>
   </section>
-
   <section class="section">
     <p class="label">Proceso</p>
     <h2>Cómo trabajamos</h2>
-    <p class="section-lead">Simple, por WhatsApp o correo. Sin rodeos.</p>
+    <p class="section-lead">Simple, por WhatsApp o correo.</p>
     <div class="steps">
-      <div class="step-card">
-        <div class="step-num">01</div>
-        <h3>Cuentas qué necesitas</h3>
-        <p>Estrategia, análisis, marca, redes o registro. Te orientamos al servicio correcto.</p>
-      </div>
-      <div class="step-card">
-        <div class="step-num">02</div>
-        <h3>Brief y cotización</h3>
-        <p>Pedimos lo mínimo para cotizar con claridad. En pauta, el presupuesto de Meta va aparte.</p>
-      </div>
-      <div class="step-card">
-        <div class="step-num">03</div>
-        <h3>Entrega y seguimiento</h3>
-        <p>Piezas, informes o gestión según el plan. Ajustes por chat o correo.</p>
-      </div>
+      <div class="step-card"><div class="step-num">01</div><h3>Cuentas qué necesitas</h3><p>Estrategia, análisis, marca, redes o registro.</p></div>
+      <div class="step-card"><div class="step-num">02</div><h3>Brief y cotización</h3><p>Pedimos lo mínimo. En pauta, Meta va aparte.</p></div>
+      <div class="step-card"><div class="step-num">03</div><h3>Entrega y seguimiento</h3><p>Piezas, informes o gestión según el plan.</p></div>
     </div>
   </section>
-
-  <section class="faq" id="preguntas">
-    <h2>Preguntas</h2>
-    <details>
-      <summary>¿La estrategia de pauta incluye las piezas (carruseles)?</summary>
-      <p>Sí. Las piezas publicitarias (carruseles, estáticos, copy) forman parte del servicio de estrategia de pauta y conversión. Se cotiza el paquete completo según volumen y gestión, no como “precio suelto” de cada slide en la web.</p>
-    </details>
-    <details>
-      <summary>¿El dinero que se invierte en Meta está incluido?</summary>
-      <p>No. Nosotros cobramos estrategia, diseño y/o gestión. Las impresiones las paga el cliente directamente a Meta.</p>
-    </details>
-    <details>
-      <summary>¿Hacen solo clínicas dentales?</summary>
-      <p>No. Trabajamos con negocios y profesionales que necesitan captar clientes con pauta y marca clara. El análisis de campañas aplica a quienes ya invierten en anuncios.</p>
-    </details>
-    <details>
-      <summary>¿Cómo contacto?</summary>
-      <p>WhatsApp 55 7236 5913, Instagram @ibamark_marketing o ibamark.agency@outlook.com.</p>
-    </details>
+  <section class="faq-home" id="preguntas">
+    <h2>Preguntas frecuentes</h2>
+    <details><summary>¿La estrategia de pauta incluye las piezas?</summary><p>Sí. Carruseles, estáticos y copy forman parte del servicio.</p></details>
+    <details><summary>¿El presupuesto de Meta está incluido?</summary><p>No. Las impresiones las paga el cliente a Meta.</p></details>
+    <details><summary>¿Cómo contacto?</summary><p>WhatsApp 55 7236 5913 o ibamark.agency@outlook.com.</p></details>
+    <p style="margin-top:1.25rem;font-size:.9rem"><a href="faq.html" style="color:#fff;text-decoration:underline;text-underline-offset:2px">Ver todas las preguntas →</a></p>
   </section>
-
-  <footer>
-    <div class="footer-inner">
-      <div>
-        <img src="logo_ibamark.svg" alt="ibamark" class="logo-img" style="height:20px;margin-bottom:.75rem" />
-        <p style="font-size:.9rem;color:var(--muted);max-width:26ch">Marketing, branding y pauta. CDMX, México.</p>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="logo_ibamark.svg" alt="ibamark" class="logo-img" style="height:20px" />
+        <p>Marketing, branding y pauta. CDMX, México.</p>
         <div class="social-links">
           <a href="https://www.facebook.com/profile.php?id=61581809648627" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
           <a href="https://www.instagram.com/ibamark_marketing/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
-          <a href="https://wa.me/525572365913" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+          <a href="https://wa.me/525572365913" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
         </div>
       </div>
-      <div class="footer-col">
+      <div>
         <h4>Servicios</h4>
         <a href="estrategia.html">Estrategia de pauta</a>
         <a href="analisis.html">Análisis de campañas</a>
         <a href="branding.html">Branding</a>
         <a href="ads.html">Publicidad</a>
-      </div>
-      <div class="footer-col">
-        <h4>Más</h4>
-        <a href="redes.html">Redes sociales</a>
-        <a href="diseno.html">Diseño gráfico</a>
+        <a href="redes.html">Redes</a>
+        <a href="diseno.html">Diseño</a>
         <a href="produccion.html">Foto y video</a>
         <a href="registro-marca.html">Registro de marca</a>
       </div>
-      <div class="footer-col">
+      <div>
+        <h4>Empresa</h4>
+        <a href="nosotros.html">Nosotros</a>
+        <a href="casos.html">Casos</a>
+        <a href="como-funciona.html">Cómo funciona</a>
+        <a href="faq.html">Preguntas</a>
+        <a href="contacto.html">Contacto</a>
+      </div>
+      <div>
         <h4>Contacto</h4>
         <a href="https://wa.me/525572365913" target="_blank" rel="noopener">55 7236 5913</a>
         <a href="mailto:ibamark.agency@outlook.com">ibamark.agency@outlook.com</a>
         <a href="https://www.instagram.com/ibamark_marketing/" target="_blank" rel="noopener">@ibamark_marketing</a>
       </div>
     </div>
-    <div class="footer-bottom">© 2026 Ibamark · CDMX · El presupuesto de Meta Ads es aparte del cliente</div>
+    <div class="footer-bottom">
+      <span>© 2026 Ibamark · CDMX</span>
+      <a href="aviso-privacidad.html">Aviso de privacidad</a>
+      <a href="terminos.html">Términos</a>
+    </div>
   </footer>
+
+  <a class="wa-float" href="https://wa.me/525572365913?text=Hola%20Ibamark%2C%20quiero%20informaci%C3%B3n" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+
+      <script>
+  (function(){
+    var btn = document.getElementById('menuBtn');
+    var menu = document.getElementById('mobileMenu');
+    if(!btn || !menu) return;
+    function closeMenu(){
+      btn.classList.remove('is-open');
+      menu.classList.remove('is-open');
+      menu.setAttribute('hidden','');
+      btn.setAttribute('aria-expanded','false');
+      btn.setAttribute('aria-label','Abrir menú');
+      document.body.classList.remove('menu-open');
+    }
+    function openMenu(){
+      btn.classList.add('is-open');
+      menu.classList.add('is-open');
+      menu.removeAttribute('hidden');
+      btn.setAttribute('aria-expanded','true');
+      btn.setAttribute('aria-label','Cerrar menú');
+      document.body.classList.add('menu-open');
+    }
+    btn.addEventListener('click', function(e){
+      e.preventDefault();
+      e.stopPropagation();
+      if(menu.classList.contains('is-open')) closeMenu(); else openMenu();
+    });
+    menu.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', closeMenu);
+    });
+    document.addEventListener('keydown', function(e){
+      if(e.key === 'Escape') closeMenu();
+    });
+    window.addEventListener('resize', function(){
+      if(window.innerWidth > 900) closeMenu();
+    });
+  })();
+  </script>
+
 </body>
 </html>
